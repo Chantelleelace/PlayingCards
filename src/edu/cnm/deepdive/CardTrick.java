@@ -21,15 +21,20 @@ public class CardTrick {
 
     List<Card> redPile = new ArrayList<>();
     List<Card> blackPile = new ArrayList<>();
+    List<Card> tempRed = new ArrayList<>();
+    List<Card> tempBlack = new ArrayList<>();
+    Random rng = new Random();
+
 
     splitDeck(deck, redPile, blackPile);
 
-    Random rng = new Random();
-    int maxLength = getMinLength(redPile, blackPile);
+    Collections.shuffle(redPile);
+    Collections.shuffle(blackPile);
 
+
+
+    int maxLength = getMinLength(redPile, blackPile);
     int X = rng.nextInt(maxLength);
-    List<Card> tempRed = new ArrayList<>();
-    List<Card> tempBlack = new ArrayList<>();
 
     removeXFromFirstAndAddToSecond(X, redPile, tempRed);
     removeXFromFirstAndAddToSecond(X, blackPile, tempBlack);
