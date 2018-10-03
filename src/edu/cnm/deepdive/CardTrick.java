@@ -25,7 +25,7 @@ public class CardTrick {
     splitDeck(deck, redPile, blackPile);
 
     Random rng = new Random();
-    ;
+    
     int maxLength = getMinLength(redPile, blackPile);
 
     int X = rng.nextInt(maxLength - 1);
