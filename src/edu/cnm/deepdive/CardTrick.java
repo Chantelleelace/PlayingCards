@@ -32,10 +32,8 @@ public class CardTrick {
     List<Card> tempRed = new ArrayList<>();
     List<Card> tempBlack = new ArrayList<>();
 
-    for (int i = 0; i < X; i++) {
-      tempRed.add(redPile.remove(0));
-      tempBlack.add(blackPile.remove(0));
-    }
+    removeXFromFirstAndAddToSecond(X, redPile, tempRed);
+    removeXFromFirstAndAddToSecond(X, blackPile, tempBlack);
 
     redPile.addAll(tempBlack);
     blackPile.addAll(tempRed);
@@ -66,6 +64,14 @@ public class CardTrick {
     }
   }
 
+
+  static <T> void removeXFromFirstAndAddToSecond(int X, List<T> first, List<T> second) {
+    for (int i = 0; i < X; i++) {
+      second.add(first.remove(0));
+    }
+  }
+
+
   static void splitDeck(List<Card> deck, List<Card> redPile, List<Card> blackPile) {
 
     List<Card> discardPile = new ArrayList<>();
@@ -77,8 +83,10 @@ public class CardTrick {
         blackPile.add(deck.get(2 * i + 1));
       }
     }
-    assert redPile.size() + blackPile.size() == deck.size();
+    assert redPile.size() + blackPile.size() == deck.size() / 2;
   }
+
+
 
 
 }
