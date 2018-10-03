@@ -25,10 +25,9 @@ public class CardTrick {
     splitDeck(deck, redPile, blackPile);
 
     Random rng = new Random();
-    
     int maxLength = getMinLength(redPile, blackPile);
 
-    int X = rng.nextInt(maxLength - 1);
+    int X = rng.nextInt(maxLength);
     List<Card> tempRed = new ArrayList<>();
     List<Card> tempBlack = new ArrayList<>();
 
@@ -38,19 +37,8 @@ public class CardTrick {
     redPile.addAll(tempBlack);
     blackPile.addAll(tempRed);
 
-    int redInRedPile = 0;
-    int blackInBlackPile = 0;
-
-    for (Card card : redPile) {
-      if (card.getSuit().getColor() == Color.RED) {
-        redInRedPile++;
-      }
-    }
-    for (Card card : blackPile) {
-      if (card.getSuit().getColor() == Color.BLACK) {
-        blackInBlackPile++;
-      }
-    }
+    int redInRedPile = countColorInCardList(redPile, Color.RED);
+    int blackInBlackPile = countColorInCardList(blackPile, Color.BLACK);
 
     System.out
         .println("Red in red pile: " + redInRedPile + "\nBlack in black pile: " + blackInBlackPile);
@@ -87,6 +75,15 @@ public class CardTrick {
   }
 
 
+  static int countColorInCardList(List<Card> first, Color color) {
+    int count = 0;
+    for (Card card : first) {
+      if (card.getSuit().getColor() == color) {
+        count++;
+      }
+    }
+    return count;
+  }
 
 
 }
