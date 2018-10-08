@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-public class BlackjackDealer {
+public class BlackjackDealer implements Comparator<BlackjackHand> {
 
   private List<Card> shoe;
 
@@ -28,4 +28,8 @@ public class BlackjackDealer {
     return shoe.remove(0);
   }
 
+  @Override
+  public int compare(BlackjackHand hand1, BlackjackHand hand2) {
+    return hand1.compareTo(hand2);
+  }
 }
