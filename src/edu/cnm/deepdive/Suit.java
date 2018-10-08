@@ -2,9 +2,10 @@ package edu.cnm.deepdive;
 
 public enum Suit {
   CLUBS(Color.BLACK, '\u2663'),
-  SPADES(Color.BLACK, '\u2660'),
   DIAMONDS(Color.RED, '\u2666'),
-  HEARTS(Color.RED, '\u2665');
+  HEARTS(Color.RED, '\u2665'),
+  SPADES(Color.BLACK, '\u2660');
+
 
   private Color color;
   private char symbol;
